@@ -1,0 +1,29 @@
+## Interface: 11200
+## Title: TooltipKOR-TW
+## Notes: 터틀와우 툴팁 한글 출력
+## Author: samahee
+## Dependencies: pfQuest, pfQuest-turtle
+## OptionalDeps: pfQuest-turtle
+## SavedVariables: TooltipKOR_SubzoneSV
+
+
+
+data\items_koKR.lua
+data\map_koKR.lua
+data\subzones_koKR.lua
+data\objects_koKR.lua
+data\spell_koKR.lua
+data\spell_alias.lua
+data\units_koKR.lua
+## data\messages_koKR.lua
+
+items.lua
+spell.lua
+map.lua
+subzones.lua
+guild.lua
+objects.lua
+taxi.lua
+units.lua
+buff_dbuff.lua
+## messages.lua
