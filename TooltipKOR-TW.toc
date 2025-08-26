@@ -3,7 +3,6 @@
 ## Notes: 터틀와우 툴팁 한글 출력
 ## Author: samahee
 ## Dependencies: pfQuest, pfQuest-turtle
-## OptionalDeps: pfQuest-turtle
 ## SavedVariables: TooltipKOR_SubzoneSV
 
 
