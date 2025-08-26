@@ -14,15 +14,12 @@ data\objects_koKR.lua
 data\spell_koKR.lua
 data\spell_alias.lua
 data\units_koKR.lua
-## data\messages_koKR.lua
 
 items.lua
 spell.lua
 map.lua
 subzones.lua
-guild.lua
 objects.lua
 taxi.lua
 units.lua
 buff_dbuff.lua
-## messages.lua
