@@ -157,10 +157,9 @@ local function ShouldSkipInjection(tt)
   if not tt then return true end
   local tname = tt:GetName() or ""
   
-  -- 비교툴팁 + 채팅 링크 툴팁은 스킵 (EQCompare 포함)
+  -- 비교 툴팁은 스킵 (EQCompare 포함)
   if tname == "ShoppingTooltip1" or
      tname == "ShoppingTooltip2" or
-     tname == "ItemRefTooltip"   or
      tname == "EQCompareTooltip1" or
      tname == "EQCompareTooltip2" then
       return true
@@ -433,7 +432,7 @@ end
 
 -- 기본 툴팁들에 설치
 InstallHooksForTooltip(GameTooltip)
--- 채팅 링크 툴팁은 원본 유지(한글 주입 비활성화)
+-- 채팅 링크 툴팁(ItemRefTooltip)에도 동일 주입
 if ItemRefTooltip then InstallHooksForTooltip(ItemRefTooltip) end
 
 -- 이미 만들어진 프레임을 1회 스캔

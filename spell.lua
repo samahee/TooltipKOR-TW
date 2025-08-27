@@ -112,7 +112,6 @@ local function ShouldSkipInjection(tt)
     -- 비교툴팁은 아예 스킵 (EQCompare 포함)
     if tname == "ShoppingTooltip1" or
        tname == "ShoppingTooltip2" or
-       tname == "ItemRefTooltip"   or
        tname == "EQCompareTooltip1" or
        tname == "EQCompareTooltip2" then
         return true
