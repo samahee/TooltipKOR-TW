@@ -428,6 +428,40 @@ local function InstallHooksForTooltip(tt)
     end
     InjectItemByLinkOrTitle(self, link)
   end)
+  
+  -- 9) TradeSkill / Profession 제작창 (결과 아이템 + 재료)
+  HookMethod(tt, "SetTradeSkillItem", function(self, skillIndex, reagentIndex)
+    if ShouldSkipInjection(self) then return end
+    local link
+    -- reagentIndex가 있으면 재료, 없으면 결과물
+    if reagentIndex then
+      if type(GetTradeSkillReagentItemLink) == "function" then
+        link = GetTradeSkillReagentItemLink(skillIndex, reagentIndex)
+      end
+    else
+      if type(GetTradeSkillItemLink) == "function" then
+        link = GetTradeSkillItemLink(skillIndex)
+      end
+    end
+    InjectItemByLinkOrTitle(self, link)
+  end)
+
+  -- 10) CraftFrame (구 방식: 마법부여 등)
+  HookMethod(tt, "SetCraftItem", function(self, craftIndex, reagentIndex)
+    if ShouldSkipInjection(self) then return end
+    local link
+    if reagentIndex then
+      if type(GetCraftReagentItemLink) == "function" then
+        link = GetCraftReagentItemLink(craftIndex, reagentIndex)
+      end
+    else
+      if type(GetCraftItemLink) == "function" then
+        link = GetCraftItemLink(craftIndex)
+      end
+    end
+    InjectItemByLinkOrTitle(self, link)
+  end)
+
 end
 
 -- 기본 툴팁들에 설치

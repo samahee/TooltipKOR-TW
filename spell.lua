@@ -385,6 +385,22 @@ local function InstallHooksForTooltip(tt)
         local sid = SpellIDFromTooltipBody(self) or SpellIDFromTitle(GetTooltipTitleText(self))
         InjectBySpellID(self, sid)
     end)
+    
+    -- 9.1) TradeSkill 레시피(스펠) 툴팁
+    HookMethod(tt, "SetTradeSkillSpell", function(self, skillIndex)
+        if ShouldSkipInjection(self) then return end
+        local sid = SpellIDFromTooltipBody(self)
+        if not sid then sid = SpellIDFromTitle(GetTooltipTitleText(self)) end
+        InjectBySpellID(self, sid)
+    end)
+
+    -- 9.2) CraftFrame (마법부여 등) 레시피(스펠) 툴팁
+    HookMethod(tt, "SetCraftSpell", function(self, craftIndex)
+        if ShouldSkipInjection(self) then return end
+        local sid = SpellIDFromTooltipBody(self)
+        if not sid then sid = SpellIDFromTitle(GetTooltipTitleText(self)) end
+        InjectBySpellID(self, sid)
+    end)
 
     -- 10) Hyperlink
     HookMethod(tt, "SetHyperlink", function(self, link)
