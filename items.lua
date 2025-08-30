@@ -461,6 +461,19 @@ local function InstallHooksForTooltip(tt)
     end
     InjectItemByLinkOrTitle(self, link)
   end)
+  
+    -- 11) Loot 창 (던전/일반 루팅)
+  HookMethod(tt, "SetLootItem", function(self, slot)
+    -- 룻 슬롯의 아이템 링크 확보 후 주입
+    local link = (type(GetLootSlotLink) == "function") and GetLootSlotLink(slot)
+    InjectItemByLinkOrTitle(self, link)
+  end)
+
+  -- 12) Group Loot(주사위) / Master Loot 후보창
+  HookMethod(tt, "SetLootRollItem", function(self, rollID)
+    local link = (type(GetLootRollItemLink) == "function") and GetLootRollItemLink(rollID)
+    InjectItemByLinkOrTitle(self, link)
+  end)
 
 end
 
